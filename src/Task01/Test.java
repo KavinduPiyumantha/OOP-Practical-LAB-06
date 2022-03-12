@@ -4,56 +4,29 @@ import java.util.Scanner;
 
 public class Test {
 
-//    static int ArrSize = 20  ;
-//    int count = ArrSize;
-//    static Task01.Cake[] cakeArray = new Task01.Cake[ ArrSize];
-//
-//    public Task01.OrderCake gettingCakeData(int i){
-//        Scanner input = new Scanner(System.in);
-//
-//        System.out.print("Enter Task01.Cake Name : ");
-//        String name = input.next();
-//
-//        System.out.print("\nEnter The rate : ");
-//        int rate = input.nextInt();
-//
-//        System.out.print("\nEnter The Weight : ");
-//        double weight = input.nextDouble();
-//
-//        Task01.OrderCake odrcake = new Task01.OrderCake(name, rate, weight);
-//        cakeArray[i] = odrcake;
-//
-//        return odrcake;
-//    }
-
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int ArrSize = 20  ;
+        int ArrSize = 5  ;
         int count = ArrSize;
         Cake[] cakeArray = new Cake[ ArrSize];
-
-        //Task01.Cake[] cakeArray = new Task01.Cake[ ArrSize];
-
-
 
         for(int i=0;i<ArrSize;i++) {
 
 
             System.out.print("\n");
-            System.out.println("1 : Order Task01.Cake ");
-            System.out.println("2 : Ready Made Task01.Cake \n");
+            System.out.println("1 : Order Cake ");
+            System.out.println("2 : Ready Made Cake \n");
 
-            System.out.print("Enter the Task01.Cake Number to add : ");
+            System.out.print("Enter the Cake Number to add : ");
 
             int cakeNum = input.nextInt();
 
             if (cakeNum == 1){
 
-//                cakeArray[i] = gettingCakeData(i);
 
-                System.out.print("Enter Task01.Cake Name : ");
+                System.out.print("Enter Cake Name : ");
                 String name = input.next();
 
                 System.out.print("Enter The rate : ");
@@ -66,16 +39,16 @@ public class Test {
                 cakeArray[i] = odrcake;
 
             } else {
-                System.out.print("Enter Task01.Cake Name : ");
+                System.out.print("Enter Cake Name : ");
                 String name = input.next();
 
                 System.out.print("Enter The rate : ");
                 int rate = input.nextInt();
 
                 System.out.print("Enter The Weight : ");
-                double quantity = input.nextDouble();
+                int quantity = input.nextInt();
 
-                OrderCake odrcake = new OrderCake(name, rate, quantity);
+                ReadymadeCake odrcake = new ReadymadeCake(name, rate, quantity);
                 cakeArray[i] = odrcake;
 
 
@@ -85,6 +58,37 @@ public class Test {
         }
 
 
+        double totCakePrice =0;
+        double RmdCakeTotPrice=0;
+        int RmdCakeTotQnt=0;
+
+        String maxCakeName = null;
+        double maxPrice=0;
+
+        for(int j=0;j<ArrSize;j++){
+
+            if(maxPrice <= cakeArray[j].calcPrice()){
+                maxPrice=cakeArray[j].calcPrice();
+                maxCakeName=cakeArray[j].name;
+            }
+
+            if(cakeArray[j] instanceof ReadymadeCake){
+                RmdCakeTotPrice= RmdCakeTotPrice + cakeArray[j].calcPrice();
+                RmdCakeTotQnt= RmdCakeTotQnt + ((ReadymadeCake) cakeArray[j]).quantity;
+            }
+
+            totCakePrice = totCakePrice + cakeArray[j].calcPrice();
+
+        }
+
+        System.out.println("Total Price for all Types of Cakes : Rs.+" + totCakePrice+ "\n");
+        System.out.println("Ready Made Cakes ");
+        System.out.println("Total Price in Ready Made Cakes : Rs.+" + RmdCakeTotPrice+ "");
+        System.out.println("Total Price in Ready Made Cakes : Rs.+" + RmdCakeTotQnt+ "\n");
+
+        System.out.println("Highest Price Cake is");
+        System.out.println("Total Price in Ready Made Cakes : Rs.+" + RmdCakeTotPrice+ "");
+        System.out.println("Highest Price Cake is \""+ maxCakeName +"\" : Rs.+" + maxPrice+ "\n");
 
     }
 }
