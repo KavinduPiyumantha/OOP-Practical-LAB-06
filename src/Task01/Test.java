@@ -8,8 +8,11 @@ public class Test {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int ArrSize = 3;
+
+
+        int ArrSize = 1;
         int count = ArrSize;
+
         Cake[] cakeArray = new Cake[ ArrSize];
 
         for(int i=0;i<ArrSize;i++) {
@@ -81,13 +84,13 @@ public class Test {
 
         }
 
+        System.out.print("\n");
         System.out.println("Total Price for all Types of Cakes : Rs." + totCakePrice+ "\n");
         System.out.println("Ready Made Cakes ");
         System.out.println("Total Price in Ready Made Cakes : Rs." + RmdCakeTotPrice+ "");
         System.out.println("Total Price in Ready Made Cakes : Rs." + RmdCakeTotQnt+ "\n");
 
         System.out.println("Highest Price Cake is");
-        System.out.println("Total Price in Ready Made Cakes : Rs." + RmdCakeTotPrice+ "");
         System.out.println("Highest Price Cake is \""+ maxCakeName +"\" : Rs." + maxPrice+ "\n");
 
     }
