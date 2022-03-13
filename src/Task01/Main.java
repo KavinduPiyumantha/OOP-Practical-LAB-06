@@ -2,7 +2,7 @@ package Task01;
 
 import java.util.Scanner;
 
-public class Test {
+public class Main {
 
 
     public static void main(String[] args) {
@@ -10,8 +10,7 @@ public class Test {
         Scanner input = new Scanner(System.in);
 
 
-        int ArrSize = 1;
-        int count = ArrSize;
+        int ArrSize = 20;
 
         Cake[] cakeArray = new Cake[ ArrSize];
 
@@ -26,7 +25,7 @@ public class Test {
 
             int cakeNum = input.nextInt();
 
-            if (cakeNum == 1){
+            if(cakeNum == 1){
 
 
                 System.out.print("Enter Cake Name : ");
